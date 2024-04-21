@@ -1,0 +1,88 @@
+{% extends "nav-bar.html" %} {% block body %} {% load static %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 fw-normal text-danger">About US</h1>
+  <p class="fs-5 text-body-secondary">
+    At Vitronics Store , we are more than just an e-commerce platform. We are
+    your gateway to a world of opportunities and innovations. Our team of
+    experienced engineers is at your disposal, ready to answer your questions,
+    provide technical support, and share their knowledge to help you succeed in
+    your projects. Despite the immense challenges we have faced and continue to
+    face, we refuse to induldge in negativity. We believe in empowering people
+    and offering solutions. We specialise in System controls and sell
+    automations products to companies and enterprises of any size and industry.
+  </p>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <a
+          href=""
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+        >
+          <span class="fs-4">ALL CATEGORIES</span>
+        </a>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+          {% for category in categories %}
+          <li>
+            <a
+              href="#"
+              class="nav-link text-start"
+            >
+              {{category.name}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-9">
+        <a
+          href=""
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+        >
+          <span class="fs-4 text-danger all-p">ALL PRODUCTS</span>
+        </a>
+        <hr />
+
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          {% for product in products %}
+          <div class="col">
+            <div
+              class="card"
+              style="width: 18rem; height: 30rem;"
+            >
+              <img
+                src="{{product.photo.url}}"
+                class="product-image"
+                style="width: 18rem; height: 15rem;"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title product-name">{{product.name}}</h5>
+                <p class="card-text">
+                  Voltage: {{product.voltage_level}}V {{product.voltage_type}} |
+                  Phases: {{product.phases}}
+                </p>
+                <p class="card-text">{{product.description}}</p>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  >Details</a
+                >
+                <a
+                  href="#"
+                  class="btn btn-success"
+                  >Add to Cart</a
+                >
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
