@@ -1,4 +1,5 @@
 {% extends "nav-bar.html" %} {% block body %} {% load static %}
+
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
   <h1 class="display-4 fw-normal text-danger">About US</h1>
   <p class="fs-5 text-body-secondary">
@@ -16,7 +17,7 @@
     <div class="row">
       <div class="col-3">
         <a
-          href=""
+          href="{% url "home" %}"
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
         >
           <span class="fs-4">ALL CATEGORIES</span>
@@ -26,7 +27,7 @@
           {% for category in categories %}
           <li>
             <a
-              href="#"
+              href="{% url "filtered" category.id %}"
               class="nav-link text-start"
             >
               {{category.name}}
@@ -35,14 +36,14 @@
           {% endfor %}
         </ul>
       </div>
-
+      
+      {% block home %}
       <div class="col-9">
-        <a
-          href=""
+        <div
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
         >
           <span class="fs-4 text-danger all-p">ALL PRODUCTS</span>
-        </a>
+        </div>
         <hr />
 
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -81,6 +82,8 @@
           {% endfor %}
         </div>
       </div>
+      {% endblock home %}
+
     </div>
   </div>
 </div>

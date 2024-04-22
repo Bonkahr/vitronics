@@ -1,0 +1,58 @@
+{% extends "home.html" %} {% load static %} {% block home %}
+<div class="col-9">
+  <a
+    href=""
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+  >
+    <span class="fs-4 text-danger all-p">{{category.name}}</span>
+  </a>
+  <hr />
+
+  {% if products %}
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    {% for product in products %}
+    <div class="col">
+      <div
+        class="card"
+        style="width: 18rem; height: 30rem"
+      >
+        <img
+          src="{{product.photo.url}}"
+          class="product-image"
+          style="width: 18rem; height: 15rem"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title product-name">{{product.name}}</h5>
+          <p class="card-text">
+            Voltage: {{product.voltage_level}}V {{product.voltage_type}} |
+            Phases: {{product.phases}}
+          </p>
+          <p class="card-text">{{product.description}}</p>
+          <a
+            href="#"
+            class="btn btn-primary"
+            >Details</a
+          >
+          <a
+            href="#"
+            class="btn btn-success"
+            >Add to Cart</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div
+    class="alert alert-info"
+    role="alert"
+  >
+    We currently don't have products on category:
+    <span class="text-danger">{{category.name}}</span>
+  </div>
+  {% endif %}
+</div>
+{% endblock home %}
