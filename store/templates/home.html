@@ -1,7 +1,7 @@
 {% extends "nav-bar.html" %} {% block body %} {% load static %}
 
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-  <h1 class="display-4 fw-normal text-danger">About US</h1>
+  <h1 class="display-4 fw-normal text-info">About US</h1>
   <p class="fs-5 text-body-secondary">
     At Vitronics Store , we are more than just an e-commerce platform. We are
     your gateway to a world of opportunities and innovations. Our team of
@@ -67,7 +67,7 @@
                 </p>
                 <p class="card-text">{{product.description}}</p>
                 <a
-                  href="#"
+                  href="{% url "product-detail" product.id %}"
                   class="btn btn-primary"
                   >Details</a
                 >

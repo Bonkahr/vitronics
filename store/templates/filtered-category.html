@@ -30,7 +30,7 @@
           </p>
           <p class="card-text">{{product.description}}</p>
           <a
-            href="#"
+            href="{% url "product-detail" product.id %}"
             class="btn btn-primary"
             >Details</a
           >
@@ -50,8 +50,8 @@
     class="alert alert-info"
     role="alert"
   >
-    We currently don't have products on category:
-    <span class="text-danger">{{category.name}}</span>
+    We currently don't have products on this category. {% comment %}
+    <span class="text-danger">{{category.name}}</span> {% endcomment %}
   </div>
   {% endif %}
 </div>

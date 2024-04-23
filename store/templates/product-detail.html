@@ -1,0 +1,84 @@
+{% extends "home.html"%} {% block home %} {% if not product %}
+
+<div class="col-9">
+  <a
+    href=""
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+  >
+    <span class="fs-4 text-danger all-p">Product not Available</span>
+  </a>
+  <hr />
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h3 class="fw-normal text-danger">Kindly select an item form our list.</h3>
+  </div>
+</div>
+
+{% else %}
+<div class="col-9">
+  <a
+    href=""
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+  >
+    <span class="fs-4 text-danger all-p"
+      >{{product.manufacturer}} {{product.name}}</span
+    >
+  </a>
+  <hr />
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h3 class="fw-normal text-body-emphasis">
+      Phases:{{product.phases}}, {{product.voltage_level}}V
+      {{product.voltage_type}}, {{product.power}}KW.
+    </h3>
+    <p class="fs-5 text-body-secondary">{{product.description}}</p>
+    <p>
+      <a
+        href="#"
+        class="btn btn-outline-secondary my-2"
+        disabled
+        >Price: Ksh. {{product.price}}</a
+      >
+      <a
+        href="#"
+        class="btn btn-outline-primary my-2"
+        >Order Now</a
+      >
+    </p>
+  </div>
+
+  <div class="text-start">
+    <h3 class="fw-normal text-success">Photography</h3>
+  </div>
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-start g-4">
+    <div class="col">
+      <div
+        class="card"
+        style="width: 18rem; height: 10rem"
+      >
+        <img
+          src="{{product.photo.url}}"
+          class="product-image"
+          style="width: 18rem; height: 10rem"
+          alt="..."
+        />
+      </div>
+    </div>
+    {% if photos %} {% for image in photos %}
+    <div class="col">
+      <div
+        class="card"
+        style="width: 18rem; height: 10rem"
+      >
+        <img
+          src="{{image.images.url}}"
+          class="product-image"
+          style="width: 18rem; height: 10rem"
+          alt="..."
+        />
+      </div>
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+{% endif %} {% endblock home %}
